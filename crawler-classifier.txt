@@ -1,0 +1,1145 @@
+CS3103: Operating Systems
+Spring 2021 
+Programming Assignment 2
+
+55833129 - DAULETYAROV Ayan
+55574846 - MUKANOV Zhanaidar
+
+Sentiment analysis
+
+This sentiment analysis requires a text corpus, that can be acquired from 3 crawlers and classifier. In this assignment the crawler gets articles from a special script generator.cpp
+
+User guides:
+
+1. Compile and link the source program ws.cpp to produce an executable file 55833129_555574846. 
+
+> g++ generator.cpp 55833129_555574846.cpp -lpthread -o 55833129_555574846
+
+2. Run the executable file.
+> ./55833129_555574846 [argument1] [argument2] [argument3] [argument4]
+
+
+
+The results are shown below
+
+> g++ generator.cpp wss.cpp -lpthread -o wss
+> ./wss 100000 100000 100000 5
+        crawler1        crawler2        crawler3      classifier       s-manager
+           start
+                           start
+                                           start
+                                                           start
+                                                                           start
+            grab
+          f-grab
+                            grab
+                          f-grab
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                            grab
+                                          f-grab
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+            grab
+          f-grab
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+            grab
+          f-grab
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+            grab
+          f-grab
+            rest
+                                            grab
+                                          f-grab
+                                            rest
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr2
+                          s-rest
+                                                                         get_cr1
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                                          up_cr1
+          s-rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+            grab
+          f-grab
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                            wait
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr2
+                          s-rest
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr1
+          s-rest
+                          s-wait
+                            grab
+                          f-grab
+                                                            clfy
+            wait
+                                                          f-clfy
+                                          s-wait
+                            wait
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr3
+          s-wait
+            grab
+          f-grab
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                            wait
+                            grab
+                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+            wait
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                            wait
+                            grab
+                          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+            wait
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                                            wait
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                                                          up_cr2
+                          s-rest
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                                                            clfy
+                                                                          up_cr1
+                                                          f-clfy
+          s-rest
+                                          s-wait
+                                            grab
+                                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+            grab
+          f-grab
+                                                            clfy
+            wait
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                                          up_cr2
+                          s-rest
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+            wait
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr1
+          s-rest
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                            clfy
+            wait
+                                                          f-clfy
+                                            wait
+                          s-wait
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                                          up_cr2
+                                                          f-clfy
+                          s-rest
+          s-wait
+            grab
+          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+            wait
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                            wait
+                                                                          up_cr2
+                          s-rest
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr2
+                          s-rest
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+                                          s-wait
+            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                                          up_cr1
+          s-rest
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+            wait
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                            wait
+            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                                          up_cr2
+                          s-rest
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+                                                            clfy
+                            wait
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                                                          up_cr2
+                          s-rest
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr1
+          s-rest
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+            wait
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                                                          up_cr3
+                                          s-rest
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                            wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                                                          up_cr3
+                                          s-rest
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+            wait
+                                            grab
+                                          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                            wait
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+            rest
+                                                                          up_cr2
+                          s-rest
+                                                                         get_cr1
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                                          up_cr1
+          s-rest
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                            wait
+                            grab
+                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                            rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                                                                          up_cr3
+                                          s-rest
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                            grab
+                                          f-grab
+                                                            clfy
+                                            wait
+                                                          f-clfy
+          s-wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                            rest
+                                                                         get_cr2
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                                                          up_cr2
+                          s-rest
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+            rest
+                                                                         get_cr1
+                            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                                            rest
+                                                                          up_cr1
+          s-rest
+                                                                         get_cr3
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+            wait
+                                                                          up_cr3
+                                          s-rest
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                            wait
+            grab
+          f-grab
+                                            wait
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+                            grab
+                          f-grab
+            wait
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                            clfy
+                                                          f-clfy
+          s-wait
+                                            wait
+            grab
+          f-grab
+                                                            clfy
+                                                          f-clfy
+                          s-wait
+            wait
+                            grab
+                          f-grab
+                                                            clfy
+                                                          f-clfy
+                                          s-wait
+                                            grab
+                                          f-grab
+                            wait
+                                                      145-enough
+                                                            clfy
+                                                                            quit
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                            quit
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                          s-wait
+                            quit
+          s-wait
+            quit
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                            clfy
+                                                          f-clfy
+                                                      157-stored
+                                                            quit
+
+
+
+The text corpus is presented below:
+
+1 6 >45f:z6krHc6C?Dk2[rQ<qV>nCh\LFqysVhMFlA^Rebnk];;Un
+2 10 jv9mPgze<GP>qfY`UGFkxw:5yJ\;KcAAH6[dk54=5QF0xYO]NY
+3 4 =Qz@5B06RXl6g=pZIbapbNe`Fqltt?YODZzbOhRJ^Wtnnly2J1
+4 1 nlb:\BtWQ9>]jr^]g4QZCu[dc2lhwXP^`YSEpnTkKs^5=SN10V
+5 3 C6oGgm=sJ>AvRT:xgHPCr=ehTH]7dioPTg74NuJ8dkwq_^cTrW
+6 8 [uM@b5Vt^`SDV^ItL\4T5N[Jt99V4b@_HQ[\mGTYGAF:D@RIWs
+7 2 9^BvCjuqCdVK7yUb\S6Pb2kHbs2m3e6S0_1CXVv\:WbnkVHPOV
+8 4 q``3Rf4VN6AaRXKi>UZlF`so@u8z@BmgZbHW_j8ktb6Tsnxa2i
+9 7 g^yV^?^;TRlASqbEjoXnQP=Py6I\\vWTT9Ae\7]8FU6yNF9VwV
+10 11 1K4ZfX7jgO5WXtTrv8wW]fu1tcYzj_[NS@^>E;ytd7@rZ^xA[l
+11 9 VGquSxSZL>FV84QiV\BCfks]0A?bFeyaqsWj8C4=7I<3cuHAex
+12 11 kw]OK9iA:1Bf>WWdDnk0vc6h5c?tJzr[]=f2NEt[SamHK`x\OU
+13 11 X16HuDTVcC\R5d`glijt98vf@DWLKUSEXj4ifC0?e@@WROC0Fa
+14 3 csnlE8@e5zcjD[aq`fDc=ETvMi3;CH\N]aq6XB^?wy4D[f<53R
+15 12 y@ZddzL7`q^1dHBhNX]h=Xz^@;Q@cmB@2_[lNT3SZkQ4F\H9bC
+16 10 Jvg=P3ye6n[Q@Ny5CJo2k7nJyfWrGfAn?`O5S`U^3IXlkOfeRA
+17 12 YCim7evvH][=;s<I1[fbMnJ@=@soUnsGWaN_F[S>XxVInMoBB`
+18 10 wH=G2nOFkHZLRqH[fsn5Q:oRDZl7C[BBoJ<3C5myj^ffqKdClJ
+19 6 f=:N5JmQhvt?HN=Xx@NQAWe_i8]8_uZtIfI3\`QF3A6oocf?al
+20 3 cbz?u1rO35;MNWq@`6Tpjszxq;tLa@emZf^R^BvykJn<=Jub_?
+21 12 yM7G96RTO?S>he5SpnLjJW5n;U7ZjqraG2db5G\4^k>;8fTUB;
+22 5 R:@PX4oG0k@t[NYfAFV=a?>IuA<L4QmJZ`fxFMJl@cd[o_vHkW
+23 7 GSSK6ej5AylwiCn@>12_un47YYt1TH:<<m;[doA^1@Femuh5tj
+24 13 0`7mm6ijy]U?=VN4MUhqHrAt_FG<B<3rA[JcOOKqtEBaIbK27[
+25 7 <ty<Pubgx<8hMr8?cgMMpIQ_azmGUGcctcUPCu?U4:`yZ9Wx0v
+26 2 OVYZY:pN`3FK54SO3Rrw:Bl9pvgPVpdye0ue[\p7<GsbTwaiZB
+27 6 S]hG7NhizJiOohRCLQo@Gb^;4_vpUD3F]LvUlUZhBSf_EwcZ;h
+28 13 z4oX;I0]9NdQtp:ACp<_7W0;R4r?cJZHZmNJW\qq`=K;Ehl>q\
+29 4 d;Q8_iRf9sUNz=ypKhQCjpi?Z\;Tjj3r49lT6KDU5LyHfZooW>
+30 9 <8\v[BH0YmLC@vpAy=Mo<CzA2<n7]uJg_5f7zuf7XBKxebPGyO
+31 11 3kpCCZ2jRuJIOJBY?M7a=m;h`Hmx_xY7vYiHFMwl5ejv^DMJ4K
+32 5 ePQ2z<;]LNHXSWkKe@0DXP[;iE9jZ:y0LwXXxijXpWEv[_N3h]
+33 2 ?bL0m7h<N>y9hz3EpHyrcnU0NJ:1xw8zpw86wMRt>25F_F\hME
+34 3 pRTk?328:7HHczz`qE=s>x=W4Iud5F@AjAC1R3yp?T_mweCV6`
+35 9 VQynkwgeb=myw`QGAl1jHOd]lG2EwSTy_K8?:2Y[\hknLi2HQH
+36 9 ItHNm@l6nVXmyhEQMobB<t07RN\0eIi_44qUbdj;G:atfdzr9O
+37 9 i8Eu[_1Igsm3N7fI;l1owb@j73<q<TT<<]Ljmw`^yJGs5@I[rJ
+38 2 `Byym^CFvR;Rs1[YHgfaIbx7PFtcj`Sw^h<UeA_jPVM`^@Y4Wr
+39 7 ghwVWsx=wnUmne=8k5p5u>tKGRd=O=MLu6Fqccvv6xa4TH6t_Y
+40 11 krl3G98>R1jRdi5zY7V?[^R9l247WTHHnr8w8[LZs=ztolvK^V
+41 3 CZ5cmMK=ZDXbC>GeVSmbFl^cK8>v3czG\Sv=q1iqDET3:`6:M<
+42 9 Ih`Fhrvaw3AFJGiV[zW;__N8s5qJ0JZmA]bhks>yvd<MIxCWPr
+43 5 \r^lMKGAWG1GPg>2P@gQjqPYMLGZaSrVn?GvJa0S0<32s7R9`v
+44 8 uu_G^?xv029LScoO71DdoKVuc??dcZlH5^60nVj_=2<W;S6@D6
+45 8 uxjcONjWKrkhSJ]Gd]Gn]b0;lSSDX2Irl]EiIkv:A5rmc6Y6F^
+46 8 hFp<qUJI=_t<w\MxVn]gpDfiWLVg5s=xM@:^iAg:]0OkL`vyTh
+47 3 cF@K:5ul`=A^r[acs7<WwG>>j\dGIHUhpeS0<GzO7AZ`:uEbQU
+48 1 anl<dtUyR>8hp7uzGA;eS58oMOV@s3t^=wi;BfalGwucfWy\]n
+49 13 z_J]1R73IN0dbZPx?9dgga7zQy?vW99C\Q7w9=bs9=GM1U0kEI
+50 12 Y^>EErq2XzZ<1U9TOqR\n8PiwCOg=fmHIG?w;IR8jaVlCdA<<>
+51 4 ?]QSIxcEcbAN28buwLavcV8fu]]^iCH=7P56]9xPoTQHII7AHh
+52 7 gxktFZ^<Q3iKxVI<0kMT7G29JFW8ye`KKLV=3\wE6Nhxbd?mqF
+53 1 aVy3V5rTLBoKH7XZx^[KEJL\og\TO4q0GkUIIKKj;K:Zzo6frc
+54 5 ^\rN37@4egf0HfhObu8dwVgFwZjXxNRj8bZl00X\PC=z[CDMNe
+55 3 PCJ1ay^R9rzrh>8jnhe=3[:S^yVeD3V;giTB3Us^2<mKD^6@SZ
+56 4 7QWdaJ4hqThk0bGl[BPoRA[8\`G@ghC46]5gc]qWQ]^ahqvqED
+57 7 TH>X^V9QQySX:96Oju0o2H[T0C12:;hP4cuv3Vytfbn_\omB=r
+58 2 BLf^agqwXnRUX@QWz:qugo\tpB<gxaa16_ZMId9FJv;>PyNpy;
+59 7 g]Igo<zhpx9m_bSwJ9ZJqc6kQnoKfL2UzN@;^k4EOxcHQQV@rT
+60 9 Va`JD^O7W>>T3ATzn=6NeKhFJcmX\8yVI5JYy`RNOzb;Kq_ebH
+61 13 ]ZG:2Om54fLH\J=hwfMca66z6[RpjmcL`]4aC_Jfx[ijDVME^S
+62 10 8WILW\tP>g<jM^Xu2v0Ig1dFp]v7wCLkgOwN<q=5qR<j8SUMep
+63 9 IPo>K4k@Zxcv1Hx:xa3:6:DA@HCExJ3lwHaEaPIyuJLg]jbEBa
+64 9 <=7:VABj=k?L@=>DkntpqofPe4mmeG]MR8Qy[9p[bto<m2Bl:6
+65 6 sCu4fG:kdFNusK6FHkL?4A<hgrG9omD[9Jl>NcS_H@RJx^9Pt^
+66 5 >5rDr5ke75Bq;QGca:JiimLlacSuLW5xA\F0:If75o\CxfKRn5
+67 2 OoL534hQmWi<kn0J4kPK@0m8@;t_D:492rdOG?VY[EBgLSgwnX
+68 2 bs]vxE;WEu_gM93d3>Cktusbj:41@Tsx5dxoj[\DIQYAqtJv;V
+69 10 wJa?8dVP=]>cVyqQ;p<<HI@gRza6g_lz[AhneplB[lyNNZM`ad
+70 12 Ll>?rSZb]DKdnKnm591>2Gz>uTLZVLH<G`yRAx9qSNec;QZ=_L
+71 5 9RA6GQvlKuHvc_pMjDNZ1;MKX:XjAREXihdGcT1r=xcHnjAyqm
+72 13 :mNl=^kSdpt83TyB^9t7auWTL`WV27ZJk]289<]7eeU9Ca<TUo
+73 12 L^?5_V;hFj8c_t3N=?L]2mO>V:y:@JTexcC\K;PzG9e?eX9oJ<
+74 5 E2Bmrg?8=Tzvto0a<ZCJhfzJJADsnCsCreSSAQTZ6\=[os9Rhy
+75 9 IvK2Lb[hHmf;_Nn`RX4J>Na:zRB55XfaYJLZ8v91nMaLMx5Ab`
+76 5 0ES9I@A]wFJ>LKXGPErGS9J1z7YyTxqz15@W6L^[eu\`K6i3AZ
+77 2 BNKCS3QV^]4phANLmSPNVh[WnFm5>E9PReevLcyUdAi<l;V0;6
+78 11 X?9UvwjH:9fOs5B97Z7b=2^\DQoSMR=Kr>HIRn=ujy7Nhn<UPV
+79 7 T6Vx1RnKpUOD8LDkhjN]a=xdWD@wAVjiO73BD9f:yXz\6LGr1f
+80 13 ?Mw3sHU=thPH3:ZBZ@>B<FooQGETSy\h_WFDwy\vjyZFldV1?7
+81 6 f2iUL0nt0u4V?v>4AiG]GjOB8=Ejs@q7xI<l?^9F<NS=Fz6z3\
+82 9 iTx?obK\@ryocplu=E4`N\ezUherkoAF\QXcNA34`acl_kZiw>
+83 13 MKz=unF8F9=cXVRtbYJGVpE]BaboSipiSy2VcR1jp<V_Nx_gQj
+84 11 xXIZkK]EgRKiZk6kAuj8NV4Wx=EQMtQFhPW]xNfM0e[a=3Q@a[
+85 8 uqqZnRq\8O0P4\;Am13stM_?`u7c=^8q2IDHp>;o]b2u?d;9Cg
+86 12 yzKQVYjGzq0pvjpSRW?D<u2B]3\8ZBln323wZC^dNABaDbx1>2
+87 13 mg\kRJn65NxcGPx]XKttpTvDA1o\qmJB^A;1T4DMEbGS1Os26o
+88 13 =zVvmdnZwr\wcuNjqfKmQz9wgoescem<m`iQgDsRxhl=DdOj@j
+89 8 HoJw`DvOYB:wC`PiWq6xJjMWqov3wJOa^2l5dvQs_>o6oNpZpj
+90 10 JE>q=`D9MdqGlOi^2hQo^3nm@uhstM0pFR8I>:rWL4?81]IKbE
+91 7 87`Tb7Bdwlm<tECZ9G`06Klu1mpYzophbA?G=n3Ob?t]df0h`X
+92 3 c;R[PhggfsXiA<4ubuION93RICb33YLA1DlG^:5@0D`lDK3QHO
+93 2 B2h\MvhUznWqP2i9854`r4qTlfD9<J[3Os0C<8d[\B`8I@GWk[
+94 7 4g^[o0@KQnG`S9y=Dkgx9tpWlAPN>3tzjWNb9l7Cko:T0_UW?;
+95 2 BGXrMTYKqkkG>[NPuns8@H_^trJ[]gLh\lv=`GR7qGb9LgMQm:
+96 9 ICiINJFtnwi><Eheg2:`HMYLd\yZUGc<REGQ[EKzR?hJRZEuwC
+97 8 hLgibt\mM`sY6sYN\I4NitvkI\gV[n2BIk76Jp6SjssJcpeW=r
+98 13 Mt3Lr6]jwN2TvZDP@fw1m<P0a>7lSH?aFb:q_=\V:F^Y8gciLH
+99 7 @2T3;u=CG3e3CXtlc?VtdsGkMpNrpZmh`[fo\>Lj6U5yWjl?]m
+100 6 sMsmkWj1KGaz`Zbx<on@<0StTJjriP8VkSDv0d>^WZ3yMy90og
+101 2 B``sg?zlDRxQzpcmh[s?`@zSk0f_]tk`OSw<gwzWMqi84b41lZ
+102 5 _E9;Mx[Vqhyq5LNOYY=JNdEOWe_>AfEl43kXIx<Q1De`6Dkz0s
+103 6 f@b[Bg9r[Aowxs_p_VElG1xofj:zO<hU^q^;oEUCAaI[`:fk=u
+104 13 zR6r9HZUTW@b=:Q7`EEmG[vYv:Zcv_c1T0Z]WY^\rrYY;:g9@Z
+105 8 hqa5`:@?ex=H3=0gXNY^WIX:7DLi3heb1Ha39mNyr:ioVfi@<P
+106 2 3B]13g[iDVNGVC8aVBjzl=F3i3??fgjOxE?rp3:tZRng^qAok8
+107 10 w96vrXWBQa=DVU:h0jFZUOQng:]fTvss8KA0luG9q?RCb\2jOA
+108 12 `LFf:r7YXHn6D_8bZGLZ`<JT=QgS64eX<VxjGK<[7F[J5DPGTj
+109 4 7dlgRzns41>g2rWV[0wqsMyZXY?=_:TLRbP=v0Nc8r4jO8:yDE
+110 10 JTAILp>]WAZEBAB]f>dX_Z5;@b`m]a:g3HANfFddlpHgg?PwDy
+111 12 yUpXwNIu91>jrT]xVWkFlSHF9@9w:M[kb[nyi`tEot6vsV2Wd^
+112 4 De1W5t_p0DxBVIF3oVptdMk\2OkDeO2:ZGV1M[xn:Z@k:Inqz<
+113 8 HENF4BuX^dyJrth;u1s1oLu<X@[[SZgn:p8\5`5<ITfF2a2bJy
+114 12 yUc6yV?7@5`F=F>LpED_3YefytiNWHMwq@wrNSva0CGw@AQNvx
+115 11 K=ay`vTJ0d3JV;]pWuudheYQikUBN[SBY;Q1q7GeYX23A>Sh0\
+116 3 c0R_Ju99OY6OF@j9s>84<eez`arG8_7JYbJ_g2k6UuVJn7M?BR
+117 1 7ac?x9Z\BMjAnR7QS\V33k=zGBo1I41;7kgyh[yf5Rf3j\iSQp
+118 2 BXH5G?J7k[_l;xb0iJESIfeSc>HjQh0@]E62N>`2xj6uJ<X:\5
+119 12 LpL8Xos_nNV;YwJmHuSpSYKTn]Vhh3J?KIKzC_5Zg3cJS4XPKz
+120 8 07=U<XB3lB]x99j1>vr6Qt\DtUmvCTdZZ9kdM:^>oR[v^pMKVf
+121 10 jN<F>Nhus<e24oRprQwu8hJkziiVy7O\Pz_vRGHCdJ9_GRzr6i
+122 3 c7lj_avZVnOk3^xx:Pc3vNR9VxQ5HebSps4WCWg?cX?O1?RW8C
+123 13 MdgZYC4M:<LSxX^^<ZLDMGfFvguqGVs7=6p@d;dGm?wci;>O;b
+124 9 i7T[W]MQX^3T?t1Jcx2rs4HlRfszGSdT7LCdQ?EyCVrpA@k>I1
+125 11 XA\hk:_qxr^1Qi7Utu^:UzIam]2rn`S@P;I^z]7[h<yhH85]LJ
+126 10 W6UlIcZN\NI>`]oTFphxS:8OW:2wJvp:?noYyczDG81[U]QvDg
+127 13 m\\>O:Vh9^7>\XA]tT94JJ]T0r3KLA@?]I@jVS<GZ6GQ?1zyT<
+128 2 obfg0KAAAYbgYK<B44]yZj=m?n?9Y0EGlG6c3GyOfQ5qVbWGx2
+129 1 aa:Ppm9Zxud_\vzY7lp5?25LquP;R@uzyRWpdK4>ImqKO1attA
+130 7 T=`tX`y9MXSaOB5<?Uoewdn@UIAM4^eFP6vKD?uv9;NL:BIRTG
+131 8 uwi45nGUsf9<rW7E;VR2X^CRpHVDep6zUBI]C5b\hUXryTshRT
+132 2 O=zhaRz^3=04k_i;N8uVFYN?lo[HTtsGnAEkpRk9j6oluj7\0\
+133 11 xXc1?ba3KJZ_Z@yo5GEvJftZfoZmwIGfmCWjC?oibo;9f^AQUC
+134 1 N[x[@2sETBp3s9W;AX=RgbBtqrYrh5mutW04`yVdrPdJSb1JN`
+135 10 4\=JT70zvcG^KjuGpR6[\]5Fk5npGoxZttb@3@G84_vQio;HIY
+136 7 tt<VL@WeYVp0wnuX3iA\pGlX8RE1HAaG^1\XVQgHJ\oa@8SQN`
+137 3 C11?xpq=BXF:HG;7YQEUR0gF8;Bj;3bM4T_Z>Y8m=ZzzhL4tnd
+138 8 H\p7s:x6n7DZ\FVzZ7GkFxgkYvYkkM\8Lomost>0_@zDp8AwUa
+139 2 <oG[1;7VG]HVM]piN>gJ6ZRNy9O9\Tf:OQLSOGq_\z2dB74Hfi
+140 8 Uj0YidtW2oP:IuDT3hf[y0qXd^a9SgJQju?WW6yvFdCH[f9\C[
+141 4 QBYoRI[@vU\mF8aWM3^pF==sRLRCU3d_nhGimr[[PTZDu:3OP[
+142 3 ]ps4A>>q7xoF20LU[?f?9IWdYw@846gtKQpDa?qiE\T03s<[7d
+143 6 58Sh@gcAqqoo\@xQx^`pxc;[X@LMwIj_7wQ7AQTp8t0J^3DVch
+144 6 :fS4c;XKbEiT6TwJ<t?FvL[`q:jNElC;AiT`NBqmI_s18_W:iI
+145 1 N>2>TV1ssl_?ytaY3Mc6jkfC8Ssc@F?BHSbkWYgw;MINf5Mko\
+146 3 cTUoq70lYjv[Er^\q5qFwI<dNVx]vaxJ8IcMBp?Avwj:RTxbo5
+147 2 OmUuYx_oa06gfqSVXugvnsTtmHWIL`SJATF;K\D?y>m^z[x=ue
+148 6 9;SPrXUWLFdnn2kM^MYqtgflkYEvVmJ<PHGw@y8Kz5?V:5F`O1
+149 12 6yWtRbm2@VeoQKPtOkgcfzSFHAI8xR5Gh=JqBLDAt;:N0^SxPu
+150 6 fParv\ehlcM[\ek0oIFf0_j@loE@s=9m?4<6PfX[ioLZaeYV8E
+151 9 V:4B:ZKZKn`fE]W\Z\`mafm>:7Ssz=oKULTZx?HqlBxjJ3Ndm3
+152 2 oZSX:har]jTm[Uy9id<jaQkXrUMg3coRKK4lg\7wId_IT07jy5
+153 13 7zPUo8agYYry\iDo@Q1Q@3f3`[BossssYF[z9cW37QXj4p_4`C
+154 3 @37p=e]bDTIi?sS`KTirz1xraB<n0gwE7OpK`^5AGjKNR^Lxin
+155 13 MU17dG?\O^o@pSVLf65ROSXw`qJFoB3if4x1d[WaeDGeN7sJqG
+156 12 yDyLSUg`e6QZb?Y8OMGE4gQQDEH95lzF^?K=u5PJYpYlIUs<;R
+157 1 >aSH7]vrm9l^@2XzEWo\maIdgS`m;V8NoE@UTLgevfeQS0jt>J
